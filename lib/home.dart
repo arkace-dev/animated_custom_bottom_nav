@@ -13,6 +13,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
+  Duration _duration = const Duration(milliseconds: 150);
+
   List<BottomNavItem> _bottomNavItems = [
     BottomNavItem(
       color: Colors.indigo,
@@ -45,12 +47,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: AnimatedContainer(
+        child: Center(
+          child: Icon(
+            _bottomNavItems[_selectedIndex].icon,
+            color: Colors.white24,
+            size: 200,
+          ),
+        ),
         color: _bottomNavItems[_selectedIndex].color,
+        duration: _duration,
       ),
       bottomNavigationBar: AnimatedBottomNavBar(
         bottomNavItems: _bottomNavItems,
-        animationDuration: const Duration(milliseconds: 150),
+        animationDuration: _duration,
         selectedIndex: _getSelectedIndex,
       ),
     );

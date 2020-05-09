@@ -40,8 +40,7 @@ class _AnimatedBottomNavBarState extends State<AnimatedBottomNavBar>
       _list.add(
         GestureDetector(
           child: AnimatedContainer(
-            duration:
-                widget.animationDuration + const Duration(milliseconds: 200),
+            duration: widget.animationDuration,
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             decoration: BoxDecoration(
               color: isActive
